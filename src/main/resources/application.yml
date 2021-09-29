@@ -1,0 +1,14 @@
+server:
+  port: 9590                                                # 端口
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true                      # 开启小驼峰与下划线转换
+  mapper-locations: classpath:mapper/**/*.xml               # xml路径
+  type-aliases-package: per.kky.modules.*.entity            # 实体类包路径
+
+logging:
+  level:
+    root: info
+    per.kky.modules: debug
+
