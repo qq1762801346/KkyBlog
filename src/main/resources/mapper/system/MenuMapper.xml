@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="per.kky.modules.system.mapper.MenuMapper">
+
+    <select id="listAllMenu" resultType="per.kky.modules.system.vo.MenuVO">
+        select menu.*, (
+            select
+            case when count(0) > 0 then 1 else 0 end
+            from blog_menu
+            where parent_id = menu.id and is_deleted = 0
+        ) as has_children
+        from blog_menu menu
+    </select>
+
+</mapper>

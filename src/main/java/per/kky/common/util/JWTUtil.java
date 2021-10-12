@@ -36,10 +36,11 @@ public class JWTUtil {
             //携带User对象信息，生成签名
             token = JWT.create()
                     .withHeader(header)
-                    .withClaim("name", user.getName())
-                    .withClaim("age", user.getAge())
-                    .withClaim("account", user.getAccount())
-                    .withClaim("password", user.getPassword())
+                    .withClaim("id", user.getId())
+                    .withClaim("userAcc", user.getUserAcc())
+                    .withClaim("userNick", user.getUserNick())
+                    .withClaim("createDept", user.getCreateDept())
+                    .withClaim("roleId", user.getRoleId())
                     .withExpiresAt(date)
                     .sign(algorithm);
         } catch (Exception e){
@@ -64,19 +65,6 @@ public class JWTUtil {
             log.info("token已过期");
             return false;
         }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        User user = new User();
-        user.setName("张飒");
-        user.setAge(10);
-        user.setAccount("zhangsa");
-        user.setPassword("123456");
-        String token = token(user);
-        System.out.println(token);
-        System.out.println(verify(token));
-        DecodedJWT jwt = JWT.decode(token);
-        System.out.println(jwt.getClaim("account").asString());
     }
 
 }
