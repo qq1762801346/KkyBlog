@@ -35,7 +35,6 @@ public class UserUtil {
             User user = Convert.convert(User.class,
                     new User()
                             .setUserAcc(jwt.getClaim("userAcc").asString())
-                            .setRoleId(jwt.getClaim("roleId").asLong())
                             .setUserNick(jwt.getClaim("userNick").asString())
                             .setId(jwt.getClaim("id").asLong())
                             .setCreateDept(jwt.getClaim("createDept").asLong()));

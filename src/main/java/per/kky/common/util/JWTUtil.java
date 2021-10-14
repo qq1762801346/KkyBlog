@@ -40,7 +40,6 @@ public class JWTUtil {
                     .withClaim("userAcc", user.getUserAcc())
                     .withClaim("userNick", user.getUserNick())
                     .withClaim("createDept", user.getCreateDept())
-                    .withClaim("roleId", user.getRoleId())
                     .withExpiresAt(date)
                     .sign(algorithm);
         } catch (Exception e){

@@ -14,6 +14,5 @@ public class User extends BaseEntity {
     private String userPwd;
     private String userNick;
     private String headIcon;
-    private Long roleId;
 
 }
