@@ -1,9 +1,11 @@
 package per.kky.modules.system.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import per.kky.common.dto.Kv;
+import per.kky.modules.system.entity.User;
 import per.kky.modules.system.vo.UserVO;
 
-public interface IUserService {
+public interface IUserService extends IService<User> {
 
     /**
      * 获取验证码

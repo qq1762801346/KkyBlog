@@ -6,7 +6,6 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import per.kky.common.entity.BaseEntity;
 import per.kky.modules.system.entity.User;
 
 import javax.servlet.http.HttpServletRequest;

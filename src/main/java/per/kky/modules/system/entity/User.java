@@ -3,7 +3,7 @@ package per.kky.modules.system.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
-import per.kky.common.entity.BaseEntity;
+import per.kky.common.base.BaseEntity;
 
 @Data
 @Accessors(chain = true)

@@ -3,6 +3,7 @@ package per.kky.modules.system.service.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wf.captcha.SpecCaptcha;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
     private final UserMapper userMapper;
     private final RedisUtil redisUtil;

@@ -2,7 +2,7 @@ package per.kky.modules.system.entity;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
-import per.kky.common.entity.BaseEntity;
+import per.kky.common.base.BaseEntity;
 
 @Data
 @Accessors(chain = true)

@@ -11,10 +11,10 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 @Component
+@AllArgsConstructor
 public class RedisUtil {
 
-    @Autowired
-    private RedisTemplate<String, String> redisTemplate;
+    private final RedisTemplate<String, String> redisTemplate;
 
     public void set(String key, String value) {
         redisTemplate.opsForValue().set(key, value);

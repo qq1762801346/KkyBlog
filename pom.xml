@@ -43,13 +43,6 @@
             <artifactId>java-jwt</artifactId>
             <version>3.8.2</version>
         </dependency>
-        <!--    单元测试    -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
         <!--    数据库-DAO    -->
         <dependency>
             <groupId>mysql</groupId>
@@ -83,6 +76,12 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>5.7.13</version>
+        </dependency>
+        <!--    单元测试    -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
         </dependency>
     </dependencies>
 
