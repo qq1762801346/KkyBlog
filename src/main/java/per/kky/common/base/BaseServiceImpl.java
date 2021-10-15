@@ -18,15 +18,21 @@ import java.util.List;
 @Validated
 public class BaseServiceImpl<M extends BaseMapper<T>, T extends BaseEntity> extends ServiceImpl<M, T> implements BaseService<T> {
 
-    private T temp;
-    private M baseMapper;
+    private T t;
 
     @Override
     public boolean deleteLogic(String ids) {
         List<Long> idList = Convert.toList(Long.class, ids);
         List<T> list = new ArrayList<>();
         idList.forEach(id -> {
-            T entity = ObjectUtil.clone(temp);
+            T entity = null;
+            try {
+                entity = (T) t.getClass().newInstance();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             entity.setId(id).setIsDeleted(1).setUpdateUser(UserUtil.getUser().getId()).setUpdateTime(DateUtil.date());
             list.add(entity);
         });
