@@ -19,20 +19,21 @@ public class JWTUtil {
 
     /**
      * 生成token
+     *
      * @param user
      * @return
      */
-    public static String token (User user){
+    public static String token(User user) {
         String token = "";
         try {
             //过期时间
-            Date date = new Date(System.currentTimeMillis()+EXPIRE_DATE);
+            Date date = new Date(System.currentTimeMillis() + EXPIRE_DATE);
             //秘钥及加密算法
             Algorithm algorithm = Algorithm.HMAC256(TOKEN_SECRET);
             //设置头部信息
-            Map<String,Object> header = new HashMap<>();
-            header.put("typ","JWT");
-            header.put("alg","HS256");
+            Map<String, Object> header = new HashMap<>();
+            header.put("typ", "JWT");
+            header.put("alg", "HS256");
             //携带User对象信息，生成签名
             token = JWT.create()
                     .withHeader(header)
@@ -42,7 +43,7 @@ public class JWTUtil {
                     .withClaim("createDept", user.getCreateDept())
                     .withExpiresAt(date)
                     .sign(algorithm);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
@@ -51,16 +52,17 @@ public class JWTUtil {
 
     /**
      * 验证token
+     *
      * @param token
      * @return
      */
-    public static boolean verify(String token){
+    public static boolean verify(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(TOKEN_SECRET);
             JWTVerifier verifier = JWT.require(algorithm).build();
             DecodedJWT jwt = verifier.verify(token);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             log.info("token已过期");
             return false;
         }

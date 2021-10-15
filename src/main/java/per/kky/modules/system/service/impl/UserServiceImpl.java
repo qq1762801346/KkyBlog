@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wf.captcha.SpecCaptcha;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import per.kky.common.base.BaseServiceImpl;
 import per.kky.common.dto.Kv;
 import per.kky.common.util.JWTUtil;
 import per.kky.common.util.RedisUtil;
@@ -22,7 +23,7 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implements IUserService {
 
     private final UserMapper userMapper;
     private final RedisUtil redisUtil;

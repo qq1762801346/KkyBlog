@@ -16,6 +16,7 @@ import per.kky.modules.system.entity.User;
 import per.kky.modules.system.service.IUserService;
 import per.kky.modules.system.vo.UserVO;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,8 +70,9 @@ public class UserController {
     }
 
     @RequestMapping("/delete")
-    public R delete(@RequestParam String ids) {
-        return R.status(false);
+    public R delete(@RequestParam String ids, HttpServletRequest request) {
+        System.out.println(request.getHeader("Kky-Token"));
+        return R.status(userService.deleteLogic(ids));
     }
 
 }
